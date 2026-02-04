@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helpapy - Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        body { scroll-behavior: smooth; }
+        code { font-family: 'Fira Code', monospace; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <nav class="sticky top-0 z-50 bg-white border-b border-slate-200 px-6 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-indigo-600">Helpapy <span class="text-sm font-normal text-slate-500">v1.0.0</span></h1>
+        <div class="space-x-4">
+            <a href="https://github.com/913groups/helpapy" class="text-slate-600 hover:text-indigo-600">GitHub</a>
+            <a href="#installation" class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm">Installer</a>
+        </div>
+    </nav>
+
+    <div class="max-w-5xl mx-auto px-6 py-12 flex flex-col md:flex-row gap-12">
+        
+        <aside class="md:w-1/4 space-y-4 sticky top-24 h-fit">
+            <h3 class="font-bold uppercase text-xs text-slate-400 tracking-widest">Méthodes</h3>
+            <ul class="space-y-2 text-slate-600">
+                <li><a href="#dateformatter" class="hover:text-indigo-600 block">DateFormatter</a></li>
+                <li><a href="#ageformatter" class="hover:text-indigo-600 block">AgeFormatter</a></li>
+                <li><a href="#moneyformatter" class="hover:text-indigo-600 block">MoneyFormatter</a></li>
+                <li><a href="#maskformatter" class="hover:text-indigo-600 block">MaskFormatter</a></li>
+                <li><a href="#validjson" class="hover:text-indigo-600 block">ValidJsonFormat</a></li>
+            </ul>
+        </aside>
+
+        <main class="md:w-3/4 space-y-16">
+            
+            <section id="installation">
+                <h2 class="text-4xl font-extrabold mb-4">Un helper pour les développeurs pressés.</h2>
+                <p class="text-lg text-slate-600 mb-6">Simplifiez la gestion des dates, de la monnaie (CDF) et de la sécurité dans vos projets PHP.</p>
+                <div class="bg-slate-900 rounded-xl p-4 text-slate-300">
+                    <code class="text-indigo-400">$</code> composer require 913groups/helpapy
+                </div>
+            </section>
+
+            <section id="dateformatter" class="scroll-mt-24">
+                <div class="border-l-4 border-indigo-500 pl-4 mb-4">
+                    <h3 class="text-2xl font-bold">DATEFORMATTER</h3>
+                    <p class="text-slate-500">Formate une date en français avec gestion intelligente des styles.</p>
+                </div>
+                <pre><code class="language-php">// Exemple d'utilisation
+use TonPseudo\Helpers\AppHelper;
+
+echo AppHelper::DATEFORMATTER('2026-02-04', 'complet'); 
+// Résultat : mercredi 4 février 2026</code></pre>
+            </section>
+
+            <section id="ageformatter" class="scroll-mt-24">
+                <div class="border-l-4 border-green-500 pl-4 mb-4">
+                    <h3 class="text-2xl font-bold">AGEFORMATTER</h3>
+                    <p class="text-slate-500">Calcule l'âge exact avec option de détails (ans, mois, jours).</p>
+                </div>
+                <pre><code class="language-php">echo AppHelper::AGEFORMATTER('1995-08-12', true); 
+// Résultat : 30 ans, 5 mois et 23 jours</code></pre>
+            </section>
+
+            <section id="moneyformatter" class="scroll-mt-24">
+                <div class="border-l-4 border-amber-500 pl-4 mb-4">
+                    <h3 class="text-2xl font-bold">MONEYFORMATTER</h3>
+                    <p class="text-slate-500">Formatage monétaire pour la République Démocratique du Congo.</p>
+                </div>
+                <pre><code class="language-php">echo AppHelper::MONEYFORMATTER(15000.50); 
+// Résultat : 15 000,50 FC</code></pre>
+            </section>
+
+            <section id="maskformatter" class="scroll-mt-24">
+                <div class="border-l-4 border-red-500 pl-4 mb-4">
+                    <h3 class="text-2xl font-bold">MASKFORMATTER</h3>
+                    <p class="text-slate-500">Protégez les données sensibles (Emails, Téléphones).</p>
+                </div>
+                <pre><code class="language-php">echo AppHelper::MASKFORMATTER('jean.dupont@gmail.com'); 
+// Résultat : jea*******@gmail.com</code></pre>
+            </section>
+
+             <section id="validjson" class="scroll-mt-24">
+                <div class="border-l-4 border-slate-500 pl-4 mb-4">
+                    <h3 class="text-2xl font-bold">VALIDJSONFORMAT</h3>
+                    <p class="text-slate-500">Validation rapide des flux JSON entrants.</p>
+                </div>
+                <pre><code class="language-php">if(AppHelper::VALIDJSONFORMAT($data)) {
+    // Traitement sécurisé
+}</code></pre>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="bg-white border-t border-slate-200 mt-20 py-10 text-center text-slate-400 text-sm">
+        <p>&copy; 2026 Helpapy par 913groups. Sous licence MIT.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+</body>
+</html>
